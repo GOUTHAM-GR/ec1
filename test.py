@@ -1,8 +1,11 @@
 import re
+import sys
 
 
 def reader():
-    with open("testlog1") as f:
+    p1=sys.argv[1]
+    #print(p1)
+    with open(p1) as f:
         log = f.readlines()
         resarr = []  # to store all events with repeation
         #print("loop out")
@@ -28,8 +31,8 @@ def reader():
         count=0
         for event in myset:
             count+=resarr.count(event)
-            print("%s  %s"%(event,resarr.count(event)))
-        print("total num of events %s" %count)
+            print("Event %s had %s events"%(event,resarr.count(event)))
+        print("Script processed %s events total" %count)
 
 if __name__ == '__main__':
     reader()
